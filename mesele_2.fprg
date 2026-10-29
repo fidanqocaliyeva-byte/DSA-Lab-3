@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="mesele_2"/>
+        <attribute name="authors" value="Fidan"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-29 06:50:42 PM"/>
+        <attribute name="created" value="RmlkYW47REVTS1RPUC1BUjNRSzJWOzIwMjYtMTAtMjk7MDY6MjA6NTkgUE07Mjg0Mw=="/>
+        <attribute name="edited" value="RmlkYW47REVTS1RPUC1BUjNRSzJWOzIwMjYtMTAtMjk7MDY6NTA6NDIgUE07MTsyOTQ2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="secim, olcuyasli, olcudiger, yas, i" type="Integer" array="False" size=""/>
+            <declare name="ad" type="String" array="False" size=""/>
+            <declare name="adyasli" type="String" array="True" size="100"/>
+            <declare name="yasyasli" type="Integer" array="True" size="100"/>
+            <declare name="addiger" type="String" array="True" size="100"/>
+            <declare name="yasdiger" type="Integer" array="True" size="100"/>
+            <assign variable="olcuyasli" expression="0"/>
+            <assign variable="olcudiger" expression="0"/>
+            <assign variable="secim" expression="1"/>
+            <while expression="secim!=0">
+                <output expression="&quot;1 - Sernisin elave et, 2 - Avtobusa mindir, 3 - Novbeleri goster, 0 - Cixis&quot;" newline="True"/>
+                <input variable="secim"/>
+                <if expression="secim==1">
+                    <then>
+                        <output expression="&quot;Sernisinin adini daxil edin:&quot;" newline="True"/>
+                        <input variable="ad"/>
+                        <output expression="&quot;Yasini daxil edin:&quot;" newline="True"/>
+                        <input variable="yas"/>
+                        <if expression="yas&gt;=65">
+                            <then>
+                                <assign variable="adyasli[olcuyasli]" expression="ad"/>
+                                <assign variable="yasyasli[olcuyasli]" expression="yas"/>
+                                <assign variable="olcuyasli" expression="olcuyasli + 1"/>
+                                <output expression="&quot;Yaslilar novbesine elave olundu.&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <assign variable="addiger[olcudiger]" expression="ad"/>
+                                <assign variable="yasdiger[olcudiger]" expression="yas"/>
+                                <assign variable="olcudiger" expression="olcudiger + 1"/>
+                                <output expression="&quot;Diger novbeye elave olundu.&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <if expression="secim==2">
+                            <then>
+                                <if expression="olcuyasli&gt;0">
+                                    <then>
+                                        <for variable="i" start="0" end="olcuyasli-2" direction="inc" step="1">
+                                            <assign variable="adyasli[i]" expression="adyasli[i + 1]"/>
+                                            <assign variable="yasyasli[i]" expression="yasyasli[i + 1]"/>
+                                        </for>
+                                        <assign variable="olcuyasli" expression="olcuyasli - 1"/>
+                                        <output expression="&quot;Ya&#351;l&#305; s&#601;rni&#351;in prioritetl&#601; avtobusa mindi.&quot;" newline="True"/>
+                                    </then>
+                                    <else>
+                                        <if expression="olcudiger&gt;0">
+                                            <then>
+                                                <for variable="i" start="0" end="olcudiger-2" direction="inc" step="1">
+                                                    <assign variable="addiger[i]" expression="addiger[i + 1]"/>
+                                                    <assign variable="yasdiger[i]" expression="yasdiger[i + 1]"/>
+                                                </for>
+                                                <assign variable="olcudiger" expression="olcudiger-1"/>
+                                                <output expression="&quot;S&#601;rni&#351;in avtobusa mindi.&quot;" newline="True"/>
+                                            </then>
+                                            <else>
+                                                <output expression="&quot;H&#601;r iki n&#246;vb&#601; bo&#351;dur.&quot;" newline="True"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="mesele_1"/>
+        <attribute name="authors" value="Fidan"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-29 06:19:07 PM"/>
+        <attribute name="created" value="RmlkYW47REVTS1RPUC1BUjNRSzJWOzIwMjYtMTAtMjk7MDU6MzE6NTEgUE07MjgzNg=="/>
+        <attribute name="edited" value="RmlkYW47REVTS1RPUC1BUjNRSzJWOzIwMjYtMTAtMjk7MDY6MTk6MDcgUE07MTsyOTUy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="secim, olcu, sira, i" type="Integer" array="False" size=""/>
+            <declare name="ad, derman" type="String" array="False" size=""/>
+            <declare name="admassiv" type="String" array="True" size="100"/>
+            <declare name="dermanmassiv" type="String" array="True" size="100"/>
+            <assign variable="secim" expression="1"/>
+            <while expression="secim!=0">
+                <output expression="&quot;1 - Elave et 2 - Xidmet et 3 - Goster 0 - Cixis&quot;" newline="True"/>
+                <input variable="secim"/>
+            </while>
+            <if expression="secim==1">
+                <then>
+                    <output expression="&quot;musteri adini daxil edin&quot;" newline="True"/>
+                    <input variable="ad"/>
+                    <output expression="&quot;dermanin adini daxil edin&quot;" newline="True"/>
+                    <input variable="derman"/>
+                    <assign variable="admassiv[olcu]" expression="ad"/>
+                    <assign variable="dermanmassiv[olcu]" expression="derman"/>
+                    <assign variable="olcu" expression="olcu+1"/>
+                    <output expression="&quot;musteri novbeye elave olundu&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
